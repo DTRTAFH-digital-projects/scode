@@ -1,0 +1,45 @@
+a:hover,
+a:active,
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+body {
+  background-color: #4169E1;
+}
+
+.header {
+    padding: 10px;
+    justify-content: space-around;
+    background-color: #00BFFF;
+    display: flex;
+    font-family: Helvetica;
+}
+
+.header__section {
+    display: flex;
+    align-items: center;
+}
+
+.header__item {
+    padding: 10px 15px;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.header__button:hover {
+    background-color: #7e349b;
+}
+
+.header__logo {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.header__logo > img {
+    width: 40px;
+    height: 40px;
+}

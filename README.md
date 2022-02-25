@@ -1,5 +1,5 @@
-#FIZMAT IT Challenge project.
+# FIZMAT IT Challenge project.
 
-##Goals
+## Goals
 *   Authorization system
 *   Chat

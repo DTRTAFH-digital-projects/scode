@@ -1,0 +1,9 @@
+.message {
+    margin-top: 5px;
+}
+
+.author__name {
+    margin: 0px;
+    font-size: 20px;
+    color: white;
+}

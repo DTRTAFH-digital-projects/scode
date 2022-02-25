@@ -1,0 +1,26 @@
+.laptop {
+    padding-left: 10%;
+    padding-top: 10%;
+    justify-content: left;
+}
+
+.top__image {
+    width: 100%;
+}
+
+.laptop img {
+    float: left;
+}
+
+.laptop__text {
+    vertical-align: middle;
+    align-items: baseline;
+    padding-top: 2%;
+}
+
+.laptop__text p {
+    font-family: 'Lato', sans-serif;
+    font-size: 40px;
+    margin: 0px;
+    color: white;
+}

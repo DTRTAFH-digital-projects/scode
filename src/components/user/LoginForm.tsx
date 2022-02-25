@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './LoginForm.css';
 import { Form, FormProps, FormState } from '../../abc/Form';
+import Cookies from 'js-cookie';
 
 class LoginFormState extends FormState {
     nickname: string = " ";
@@ -28,14 +29,9 @@ class LoginForm extends Form {
 
     handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
         let state = this.state as LoginFormState;
-        //fetch("http://localhost:8000/users", {
-        //        mode: 'no-cors'
-        //    })
-        //    .then(res => {
-        //        alert(res);
-        //        console.log(res);
-        //    });
-        //console.log("a");
+        //TODO: move to special file.
+        Cookies.set("nickname", (this.state as LoginFormState).nickname);
+        Cookies.set("password", (this.state as LoginFormState).password);
         event.preventDefault();
     }
 

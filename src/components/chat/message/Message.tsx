@@ -1,14 +1,10 @@
 import React from "react";
 import { MessageData } from "../../../models/ChatModels";
-import './Message.css';
+import '../../../styles/Message.css';
 
-class MessageState {}
+type MessageProps = {msg_data: MessageData};
 
-class MessageProps {
-    msg_data: MessageData = new MessageData("", "");
-}
-
-class Message extends React.Component<MessageProps, MessageState> {
+class Message extends React.Component<MessageProps> {
     text: string;
     author: string;
     id: string;

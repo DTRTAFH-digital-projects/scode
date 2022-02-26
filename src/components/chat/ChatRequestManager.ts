@@ -26,6 +26,7 @@ export function getMessages(): MessageData[] {
         .then(res => {
             res.messages.map(( message: { name: string; text: string } ) => {
                 result.push(new MessageData(message.name, message.text));
+                return undefined;
             });
         })
         .catch(error => { console.log(error) }

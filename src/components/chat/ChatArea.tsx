@@ -1,22 +1,18 @@
 import React from "react";
-import './ChatArea.css';
+import '../../styles/ChatArea.css';
 import Message from "./message/Message";
 import { getMessages, submitMessage } from './ChatRequestManager';
 import { MessageData } from "../../models/ChatModels";
 
-class ChatAreaProps {}
+class ChatArea extends React.Component {
+    state: {text: string, author: string, messages: MessageData[]} = {
+        text: "",
+        author: "",
+        messages: []
+    }
 
-class ChatAreaState {
-    text: string = "";
-    author: string = "";
-    messages: MessageData[] = [];
-}
-
-class ChatArea extends React.Component<ChatAreaProps, ChatAreaState> {
-
-    constructor(props: ChatAreaProps) {
+    constructor(props: {}) {
         super(props);
-        this.state = new ChatAreaState();
 
         this.handlerChange = this.handlerChange.bind(this);
         this.handlerChangeAuthor = this.handlerChangeAuthor.bind(this);
@@ -25,6 +21,7 @@ class ChatArea extends React.Component<ChatAreaProps, ChatAreaState> {
     }
 
     componentDidMount() {
+        //TODO fix incorrect rendering
         setInterval(this.updateMessages, 1000);
     }
 

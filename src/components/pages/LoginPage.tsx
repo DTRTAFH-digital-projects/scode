@@ -38,6 +38,7 @@ class LoginForm extends React.Component {
         console.log("a");
         Cookies.set("nickname", this.state.nickname);
         Cookies.set("password", this.state.password);
+        window.location.href = "/";
         event.preventDefault();
     }
 

@@ -1,21 +1,29 @@
-.header__link:hover,
-.header__link {
+.header__link:hover {
     text-decoration: none;
+    color: #d6d6d6;
+}
+
+.header__link {
     color: #FFFFFF;
+    text-decoration: none;
     padding: 10px;
 }
 
-.header__link:active {
-    background-color: #8097ff;
+.header__link:active,
+.header__item:active {
+    color: #b9b9b9;
 }
+
 
 .header {
     max-width: 1600px;
     padding: 10px 0px;
     width: 100%;
     justify-content: space-around;
-    background-color: #00BFFF;
+    background-color: #0E185F;
     display: flex;
+    position: fixed;
+    z-index: 1000;
     font-family: Helvetica;
 }
 
@@ -25,23 +33,28 @@
 }
 
 .header__item {
+    border-radius: 10px;
     padding: 10px 15px;
     font-family: 'Lato', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     margin-left: 20px;
 }
 
 .header__logo {
     font-weight: bold;
     font-size: 30px;
+    padding: 10px 15px;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    margin-left: 20px;
     font-style: italic;
+    border: initial;
 }
 
 .header__logo__link:hover,
 .header__logo__link {
     text-decoration: none;
     color: #FFFFFF;
-    padding: 10px;
 }
 
 .header__logo > img {

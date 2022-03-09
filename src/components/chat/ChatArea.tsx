@@ -3,26 +3,31 @@ import '../../styles/ChatArea.css';
 import Message from "./message/Message";
 import { getMessages, submitMessage } from './ChatRequestManager';
 import { MessageData } from "../../models/ChatModels";
+import Cookies from "js-cookie";
 
 class ChatArea extends React.Component {
-    state: {text: string, author: string, messages: MessageData[]} = {
+    author: { name?: string, id?: string }
+    state: {text: string, messages: MessageData[]} = {
         text: "",
-        author: "",
         messages: []
     }
 
     constructor(props: {}) {
         super(props);
 
+        this.author = {
+            id: Cookies.get("id"),
+            name: Cookies.get("nickname") //TODO get nickname from db.
+        }
+
         this.handlerChange = this.handlerChange.bind(this);
-        this.handlerChangeAuthor = this.handlerChangeAuthor.bind(this);
         this.handlerSubmit = this.handlerSubmit.bind(this);
         this.updateMessages = this.updateMessages.bind(this);
     }
 
     componentDidMount() {
         //TODO fix incorrect rendering
-        setInterval(this.updateMessages, 1000);
+        //setInterval(this.updateMessages, 1000);
     }
 
     updateMessages() {
@@ -33,7 +38,7 @@ class ChatArea extends React.Component {
     }
 
     handlerSubmit(ev: React.FormEvent<HTMLInputElement>) {
-        submitMessage(new MessageData(this.state.author, this.state.text));
+        submitMessage(new MessageData(this.author.id === undefined ? "" : this.author.id, this.state.text));
         ev.preventDefault();
     }
 
@@ -42,14 +47,6 @@ class ChatArea extends React.Component {
         this.setState({
             ...this.state,
             text: value
-        });
-    }
-
-    handlerChangeAuthor(ev: React.ChangeEvent<HTMLInputElement>) {
-        let value = ev.target.value;
-        this.setState({
-            ...this.state,
-            author: value
         });
     }
 
@@ -64,7 +61,6 @@ class ChatArea extends React.Component {
                     </ul>
                 </nav>
                 <form className="input__cont">
-                    <input type="text" className="input__message" value={this.state.author} onChange={this.handlerChangeAuthor} />
                     <input type="text" className="input__message" value={this.state.text} onChange={this.handlerChange} />
                     <input type="submit" className="input__button" onClick={this.handlerSubmit} />
                 </form>

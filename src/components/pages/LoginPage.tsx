@@ -35,7 +35,6 @@ class LoginForm extends React.Component {
 
     handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
         //TODO: move to special file.
-        console.log("a");
         Cookies.set("nickname", this.state.nickname);
         Cookies.set("password", this.state.password);
         window.location.href = "/";

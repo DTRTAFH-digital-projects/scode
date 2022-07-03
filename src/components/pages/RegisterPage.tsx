@@ -1,7 +1,6 @@
 import Header from '../main/Header';
 import '../../styles/RegisterForm.css';
 import React from 'react';
-import { getValue } from '@testing-library/user-event/dist/utils';
 
 class RegisterForm extends React.Component {
     state = {
@@ -35,7 +34,7 @@ class RegisterForm extends React.Component {
             case "email":
                 this.setState({
                     ...this.state,
-                    email: getValue
+                    email: value
                 });
                 break;
         }
